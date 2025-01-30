@@ -3,12 +3,14 @@ import MainLayout from "../layouts/MainLayout.tsx";
 import AuthenteficationPage from "../pages/AuthenteficationPage.tsx";
 import UsersPage from "../pages/UsersPage.tsx";
 import RecipesPage from "../pages/RecipesPage.tsx";
+import MainPage from "../pages/MainPage.tsx";
 
 export const routs = createBrowserRouter([
     {path:'/', element:<MainLayout/>, children:[
+            {index:true, element:<MainPage/>},
             {path:'auth', element:<AuthenteficationPage/>},
-            {path:'users', element:<UsersPage/>},
-            {path:'recipes', element:<RecipesPage/>},
+            {path:'auth/users', element:<UsersPage/>},
+            {path:'auth/recipes', element:<RecipesPage/>},
 
         ]}
 ])

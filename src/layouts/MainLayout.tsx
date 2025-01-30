@@ -4,12 +4,14 @@ import MainMenu from "../menu/MainMenu.tsx";
 
 const MainLayout = () => {
     return (
-        <div className={'bg-yellow-300'}>
+        <div >
             <div className={'font-bold' }>You are not authorized. Please sign in using Autentefication Page!</div>
-            <br/>
-            <MainMenu/>
-            <br/>
-            <Outlet />
+
+            <div className={'bg-yellow-300'}>
+                <MainMenu/>
+
+                <Outlet />
+            </div>
 
         </div>
     );
