@@ -35,7 +35,7 @@ const FormComponent = () => {
                     <input  className={'border-2 border-black'} type="text" {...register('password')} placeholder="password"/>
                     {errors.password && <div>{errors.password.message}</div>}
                 </label>
-
+                    <br/>
                 <button className={'border-2 bg-green-300 '} disabled={!isValid}>Log in</button>
             </form>
 

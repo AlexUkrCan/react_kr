@@ -8,7 +8,7 @@ import MainPage from "../pages/MainPage.tsx";
 export const routs = createBrowserRouter([
     {path:'/', element:<MainLayout/>, children:[
             {index:true, element:<MainPage/>},
-            {path:'auth', element:<AuthenteficationPage/>},
+            {path:'login', element:<AuthenteficationPage/>},
             {path:'auth/users', element:<UsersPage/>},
             {path:'auth/recipes', element:<RecipesPage/>},
 
