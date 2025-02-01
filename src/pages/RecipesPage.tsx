@@ -1,5 +1,6 @@
 import {useEffect} from "react";
 import {loadAuthRecipes} from "../services/api-login.service.ts";
+import RecipesComponent from "../components/recipes/RecipesComponent.tsx";
 
 
 const RecipesPage = () => {
@@ -14,6 +15,8 @@ const RecipesPage = () => {
     },[])
     return (
         <div>
+
+            <RecipesComponent/>
 
         </div>
     );

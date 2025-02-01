@@ -1,5 +1,6 @@
 import {useEffect} from "react";
 import {loadAuthUsers} from "../services/api-login.service.ts";
+import UsersComponent from "../components/users/UsersComponent.tsx";
 
 
 const UsersPage = () => {
@@ -14,7 +15,8 @@ const UsersPage = () => {
     },[])
     return (
         <div>
-           Users page
+
+            <UsersComponent/>
         </div>
     );
 };
