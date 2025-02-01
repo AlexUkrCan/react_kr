@@ -3,33 +3,27 @@ import userValidator from "../../validators/user.validators.ts";
 import {joiResolver} from "@hookform/resolvers/joi";
 import {useForm} from "react-hook-form";
 
-import {login} from "../../services/api-login.service.ts";
+import {login, LoginData} from "../../services/api-login.service.ts";
 
 
 
-interface IFormComponentProps {
-    username: string;
-    password: string;
-    expiresInMins: number;
 
-
-}
 
 const FormComponent = () => {
 
 
     const {handleSubmit, register, formState:{errors, isValid}}  =
-        useForm<IFormComponentProps>({mode:'all', resolver:joiResolver(userValidator)});
+        useForm<LoginData>({mode:'all', resolver:joiResolver(userValidator)});
 
-    const customHandler = (data:IFormComponentProps
+    const customHandler = (data:LoginData
     ) => {
 
         console.log(data)
-        const loginData:IFormComponentProps = {
+       const loginData:LoginData = {
             username:data.username,
             password:data.password,
-            expiresInMins:1
-        }
+            expiresInMins:1,
+        };
 
         login(loginData);
     }
