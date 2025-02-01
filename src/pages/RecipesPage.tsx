@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {loadAuthRecipes, refresh} from "../services/api-login.service.ts";
+import {loadAuthRecipes} from "../services/api-login.service.ts";
 
 
 const RecipesPage = () => {
@@ -9,9 +9,6 @@ const RecipesPage = () => {
         {console.log(value)}).catch(error => {console.log(error)})
         // виконуємо процес рефрешу
 
-        refresh()
-            .then(() =>loadAuthRecipes())
-            .then(value =>console.log(value))
 
 
     },[])
