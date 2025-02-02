@@ -1,6 +1,7 @@
 
 import {FC} from "react";
 import {IRecipes} from "../../models/recipes/IRecipes.ts";
+import {useNavigate} from "react-router-dom";
 
 
 type RecipeTypeProps={
@@ -8,10 +9,15 @@ type RecipeTypeProps={
 }
 
 const RecipeComponent:FC<RecipeTypeProps> = ({item}) => {
+    const navigation = useNavigate();
+
+    const onButtonClickNavigateRecipe = ()  =>{
+        navigation('/recipes/' + item.id )
+    }
 
     return (
         <div>
-            {item.name} {item.cuisine}
+            {item.name} {item.cuisine}  <button className={'border-2 bg-sky-700'} onClick={onButtonClickNavigateRecipe}>Show details</button>
         </div>
     );
 };

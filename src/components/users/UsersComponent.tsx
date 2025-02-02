@@ -12,17 +12,15 @@ const UsersComponent = () => {
         //створюємо функцію яка повинна підвантажувати нам продукти
         loadAuthUsers().then(users =>
         {setUsers(users)}).catch(error => {console.log(error)})
-        // виконуємо процес рефрешу
 
+    },[]);
 
-
-    },[])
 
 
     return (
         <div>
             {
-                users.map(user =><UserComponent key={user.id} item={user} />)
+                users.map(user =><UserComponent key={user.id} user={user}/>)
             }
 
         </div>
