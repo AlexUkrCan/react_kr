@@ -9,9 +9,10 @@ const RecipesComponent = () => {
 
     useEffect(() => {
         //створюємо функцію яка повинна підвантажувати нам продукти
-        loadAuthRecipes().then(users =>
-        {setRecipes(users)}).catch(error => {console.log(error)})
-    },[])
+        loadAuthRecipes().then(recipes =>
+        {setRecipes(recipes)}).catch(error => {console.log(error)})
+
+    },[]);
 
     return (
         <div>
