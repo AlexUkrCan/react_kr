@@ -6,6 +6,7 @@ import {IRecipes} from "../models/recipes/IRecipes.ts";
 import {IRecipesObject} from "../models/recipes/IRecipesObject.ts";
 import {IUsers} from "../models/users/IUsers.ts";
 import {IUsersObjects} from "../models/users/IUsersObject.ts";
+import {ITokenPair} from "../models/autentefication_users/ITokenPair.ts";
 
 
 
@@ -59,4 +60,15 @@ export const loadAuthUsers = async ():Promise<IUsers[]> => {
 
 
 //робимо функцію для рефрешу
+export const refresh = async ():Promise<void> => {
+    //дістаємо юзера з localstorage
+    const user = retriveLocalStorage<IUsersWithTokens>('user');
+    const {data:{accessToken, refreshToken}} = await axiosInstance.post<ITokenPair>("/refresh", {refreshToken:user.refreshToken , expiresInMins:1});
+    console.log(accessToken);
+    console.log(refreshToken);
+    //візьмемо користувача який в нас існує в локалсторедж та звернемось до його характеристик accessToken та refreshToken і впровадимо йому нові токени
+    user.accessToken = accessToken;
+    user.refreshToken = refreshToken;
+    localStorage.setItem('user', JSON.stringify(user));
+}
 

@@ -9,10 +9,12 @@ import {login, LoginData} from "../../services/api-login.service.ts";
 
 
 
+
+
 const FormComponent = () => {
 
 
-    const {handleSubmit, register, formState:{errors, isValid}}  =
+    const {handleSubmit, register, formState:{errors, isValid},reset}  =
         useForm<LoginData>({mode:'all', resolver:joiResolver(userValidator)});
 
     const customHandler = (data:LoginData
@@ -26,10 +28,8 @@ const FormComponent = () => {
         };
 
         login(loginData);
+        reset();
     }
-
-
-
 
     return (
         <div>

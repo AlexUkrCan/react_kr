@@ -9,7 +9,7 @@ const UsersComponent = () => {
     const [users, setUsers] = useState<IUsers[]>([]);
 
     useEffect(() => {
-        //створюємо функцію яка повинна підвантажувати нам продукти
+
         loadAuthUsers().then(users =>
         {setUsers(users)}).catch(error => {console.log(error)})
 

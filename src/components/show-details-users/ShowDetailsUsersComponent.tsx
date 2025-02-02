@@ -4,6 +4,7 @@ import {IRecipes} from "../../models/recipes/IRecipes.ts";
 import ShowDetailUserComponent from "../show-detail-user/ShowDetailUserComponent.tsx";
 import {recipeService} from "../../services/recipes-from-users/api.recipes-from-users.service.tsx";
 import {IRecipesObject} from "../../models/recipes/IRecipesObject.ts";
+import {loadAuthRecipes} from "../../services/api-login.service.ts";
 
 
 
@@ -23,8 +24,8 @@ const ShowDetailsUsersComponent = () => {
 
                 });
         }
-        // loadAuthRecipesWithId().then(recipes =>
-        // {setRecipes(recipes)})
+         loadAuthRecipes().then(recipes =>
+        {setRecipes(recipes)})
 
 }, [id]);
     return (
