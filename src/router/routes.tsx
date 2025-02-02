@@ -5,6 +5,7 @@ import UsersPage from "../pages/UsersPage.tsx";
 import RecipesPage from "../pages/RecipesPage.tsx";
 import MainPage from "../pages/MainPage.tsx";
 import ShowDetailsUsersPage from "../pages/ShowDetailsUsersPage.tsx";
+import ShowDetailsRecipePage from "../pages/ShowDetailsRecipePage.tsx";
 
 
 export const routs = createBrowserRouter([
@@ -14,6 +15,8 @@ export const routs = createBrowserRouter([
             {path:'auth/users', element:<UsersPage/>},
             {path:'users/:id/recipes', element:<ShowDetailsUsersPage/>},
             {path:'auth/recipes', element:<RecipesPage/>},
+            {path:'recipes/recipe', element:<ShowDetailsRecipePage/>},
+
 
 
 

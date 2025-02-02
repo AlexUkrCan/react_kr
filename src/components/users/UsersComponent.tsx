@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {IUsers} from "../../models/users/IUsers.ts";
 import UserComponent from "./UserComponent.tsx";
-import {loadAuthUsers} from "../../services/api-login.service.ts";
+import {loadAuthUsers, refresh} from "../../services/api-login.service.ts";
 
 
 const UsersComponent = () => {
@@ -12,6 +12,11 @@ const UsersComponent = () => {
 
         loadAuthUsers().then(users =>
         {setUsers(users)}).catch(error => {console.log(error)})
+
+        refresh()
+        .then(() =>loadAuthUsers())
+                .then(users =>console.log(users))
+
 
     },[]);
 

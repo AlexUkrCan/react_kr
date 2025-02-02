@@ -48,10 +48,7 @@ export const loadAuthRecipes = async ():Promise<IRecipes[]> => {
     const {data:{recipes}} = await axiosInstance.get<IRecipesObject>('/recipes',{});
     return recipes;
 }
-export const loadAuthRecipesWithId = async ():Promise<IRecipes[]> => {
-    const {data:{recipes}} = await axiosInstance.get<IRecipesObject>('users/:id/recipes',{});
-    return recipes;
-}
+
 
 export const loadAuthUsers = async ():Promise<IUsers[]> => {
     const {data:{users}} = await axiosInstance.get<IUsersObjects>('/users', {});
