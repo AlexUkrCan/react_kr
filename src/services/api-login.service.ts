@@ -44,12 +44,12 @@ export const login =async ({username, password, expiresInMins}:LoginData):Promis
 }
 
 export const loadAuthRecipes = async ():Promise<IRecipes[]> => {
-    const {data:{recipes}} = await axiosInstance.get<IRecipesObject>("recipes");
+    const {data:{recipes}} = await axiosInstance.get<IRecipesObject>('/recipes',{});
     return recipes;
 }
 
 export const loadAuthUsers = async ():Promise<IUsers[]> => {
-    const {data:{users}} = await axiosInstance.get<IUsersObjects>("users");
+    const {data:{users}} = await axiosInstance.get<IUsersObjects>('/users', {});
     return users;
 }
 

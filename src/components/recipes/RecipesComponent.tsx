@@ -1,16 +1,16 @@
 import {useEffect, useState} from "react";
 import {IRecipes} from "../../models/recipes/IRecipes.ts";
-import {IRecipesObject} from "../../models/recipes/IRecipesObject.ts";
 import RecipeComponent from "./RecipeComponent.tsx";
-import {getRecipes} from "../../services/recipes/api.recipes-service.ts";
+import {loadAuthRecipes} from "../../services/api-login.service.ts";
 
 
 const RecipesComponent = () => {
     const [recipes, setRecipes] = useState<IRecipes[]>([]);
 
     useEffect(() => {
-        getRecipes()
-            .then(({recipes}:IRecipesObject) => setRecipes(recipes));
+        //створюємо функцію яка повинна підвантажувати нам продукти
+        loadAuthRecipes().then(users =>
+        {setRecipes(users)}).catch(error => {console.log(error)})
     },[])
 
     return (
