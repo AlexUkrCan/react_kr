@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import UserComponent from "./UserComponent.tsx";
 import {loadAuthUsers, refresh} from "../../services/login-service/api-login.service.ts";
 import {useAppDispatch, useAppSelector} from "../../redux/store.ts";
@@ -22,10 +22,14 @@ const UsersComponent = () => {
 
     },[]);
 
-
-
+    const[searchTerm, setSearchTerm] = useState('')
     return (
         <div>
+            <div>Search</div>
+            <div>
+                <input value={searchTerm} type="text" placeholder="Search users" onChange={(e)=>setSearchTerm(e.target.value)}/>
+
+            </div>
             {
                 users.map(user =><UserComponent key={user.id} user={user}/>)
             }

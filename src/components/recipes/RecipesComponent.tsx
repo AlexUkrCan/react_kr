@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import RecipeComponent from "./RecipeComponent.tsx";
 import {useAppDispatch, useAppSelector} from "../../redux/store.ts";
 import {recipeActions} from "../../redux/recipe-slice/RecipeSlice.ts";
@@ -20,9 +20,14 @@ const RecipesComponent = () => {
 
 
     },[]);
-
+    const[searchTerm, setSearchTerm] = useState('')
     return (
         <div>
+            <div>Search</div>
+            <div>
+                <input value={searchTerm} type="text" placeholder="Search recipe" onChange={(e)=>setSearchTerm(e.target.value)}/>
+
+            </div>
             {
                 recipes.map(recipe =><RecipeComponent key={recipe.id} item={recipe} />)
             }
