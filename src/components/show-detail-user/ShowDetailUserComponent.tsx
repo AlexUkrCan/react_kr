@@ -1,15 +1,19 @@
 
-import {IRecipes} from "../../models/recipes/IRecipes.ts";
-import {FC} from "react";
 
-type RecipeTypeProps={
-    recipe:IRecipes;
+import {FC} from "react";
+import {IUsers} from "../../models/users/IUsers.ts";
+
+
+type UserTypeProps={
+    user:IUsers;
 }
-const ShowDetailUserComponent:FC<RecipeTypeProps> = ({recipe}) => {
+const ShowDetailUserComponent:FC<UserTypeProps> = ({user}) => {
+
 
     return (
         <div>
-            {recipe.name}
+            {user.firstName} {user.lastName}   {user.phone}   {user.maidenName}   {user.weight}    {user.height}  {user.macAddress}
+
         </div>
     );
 };

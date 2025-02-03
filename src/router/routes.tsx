@@ -13,7 +13,7 @@ export const routs = createBrowserRouter([
             {index:true, element:<MainPage/>},
             {path:'login', element:<AuthenteficationPage/>},
             {path:'auth/users', element:<UsersPage/>},
-            {path:'users/:id/recipes', element:<ShowDetailsUsersPage/>},
+            {path:'users/:id', element:<ShowDetailsUsersPage/>},
             {path:'auth/recipes', element:<RecipesPage/>},
             {path:'recipes/recipe', element:<ShowDetailsRecipePage/>},
 

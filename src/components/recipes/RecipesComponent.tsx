@@ -1,16 +1,23 @@
-import {useEffect, useState} from "react";
-import {IRecipes} from "../../models/recipes/IRecipes.ts";
+import {useEffect} from "react";
 import RecipeComponent from "./RecipeComponent.tsx";
-import {loadAuthRecipes} from "../../services/api-login.service.ts";
+import {useAppDispatch, useAppSelector} from "../../redux/store.ts";
+import {recipeActions} from "../../redux/recipe-slice/RecipeSlice.ts";
+import {loadAuthRecipes,  refresh} from "../../services/login-service/api-login.service.ts";
 
 
 const RecipesComponent = () => {
-    const [recipes, setRecipes] = useState<IRecipes[]>([]);
+
+    const dispatch = useAppDispatch();
+    const recipes = useAppSelector((state) => state.recipeSlice.recipes)
 
     useEffect(() => {
-        //створюємо функцію яка повинна підвантажувати нам продукти
-        loadAuthRecipes().then(recipes =>
-        {setRecipes(recipes)}).catch(error => {console.log(error)})
+
+        dispatch(recipeActions.loadRecipes());
+
+        refresh()
+            .then(() =>loadAuthRecipes())
+            .then(recipes =>console.log(recipes))
+
 
     },[]);
 

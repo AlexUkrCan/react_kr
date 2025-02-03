@@ -5,7 +5,6 @@ import ShowDetailsUsersComponent from "../components/show-details-users/ShowDeta
 const ShowDetailsUsersPage = () => {
     return (
         <div>
-            Show detail user page
 
             <ShowDetailsUsersComponent/>
         </div>

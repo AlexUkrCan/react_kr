@@ -1,12 +1,12 @@
 
 import axios from "axios";
-import {retriveLocalStorage} from "../helper/helper.ts";
-import {IUsersWithTokens} from "../models/autentefication_users/IUsersWithTokens.ts";
-import {IRecipes} from "../models/recipes/IRecipes.ts";
-import {IRecipesObject} from "../models/recipes/IRecipesObject.ts";
-import {IUsers} from "../models/users/IUsers.ts";
-import {IUsersObjects} from "../models/users/IUsersObject.ts";
-import {ITokenPair} from "../models/autentefication_users/ITokenPair.ts";
+import {retriveLocalStorage} from "../../helper/helper.ts";
+import {IUsersWithTokens} from "../../models/autentefication_users/IUsersWithTokens.ts";
+import {IRecipes} from "../../models/recipes/IRecipes.ts";
+import {IRecipesObject} from "../../models/recipes/IRecipesObject.ts";
+import {IUsers} from "../../models/users/IUsers.ts";
+import {IUsersObjects} from "../../models/users/IUsersObject.ts";
+import {ITokenPair} from "../../models/autentefication_users/ITokenPair.ts";
 
 
 

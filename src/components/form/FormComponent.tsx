@@ -3,7 +3,7 @@ import userValidator from "../../validators/user.validators.ts";
 import {joiResolver} from "@hookform/resolvers/joi";
 import {useForm} from "react-hook-form";
 
-import {login, LoginData} from "../../services/api-login.service.ts";
+import {login, LoginData} from "../../services/login-service/api-login.service.ts";
 
 
 

@@ -1,37 +1,15 @@
-import {IUsers} from "../models/users/IUsers.ts";
-import {IRecipes} from "../models/recipes/IRecipes.ts";
-import {configureStore, createSlice} from "@reduxjs/toolkit";
 
-type UserSliceType = {
-    user:IUsers[];
-}
+import {configureStore} from "@reduxjs/toolkit";
+import {userSlice} from "./user-slice/UserSlice.ts";
+import {recipeSlice} from "./recipe-slice/RecipeSlice.ts";
+import {useDispatch, useSelector} from "react-redux";
 
-type RecipeSliceType = {
-    recipe:IRecipes[];
-}
-const initialStateRecipe: RecipeSliceType = {recipe:[]}
-
-const initialStateUser: UserSliceType = {user:[]}
-
-const userSlice = createSlice({
-    name:'userSlice',
-    initialState:initialStateUser,
-    reducers:{
-
-    },
-    extraReducers:builder => builder
-})
-const recipeSlice = createSlice({
-    name:'recipeSlice',
-    initialState:initialStateRecipe,
-    reducers:{
-
-    },
-    extraReducers:builder => builder
-})
 export const store= configureStore({
     reducer:{
         userSlice:userSlice.reducer,
         recipeSlice:recipeSlice.reducer
     }
 })
+
+export const useAppDispatch = useDispatch.withTypes<typeof store.dispatch>();
+export const useAppSelector = useSelector.withTypes<ReturnType<typeof store.getState>>();

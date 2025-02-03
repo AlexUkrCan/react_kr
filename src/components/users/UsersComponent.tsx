@@ -1,17 +1,19 @@
-import {useEffect, useState} from "react";
-import {IUsers} from "../../models/users/IUsers.ts";
+import {useEffect} from "react";
 import UserComponent from "./UserComponent.tsx";
-import {loadAuthUsers, refresh} from "../../services/api-login.service.ts";
+import {loadAuthUsers, refresh} from "../../services/login-service/api-login.service.ts";
+import {useAppDispatch, useAppSelector} from "../../redux/store.ts";
+import {userActions} from "../../redux/user-slice/UserSlice.ts";
 
 
 const UsersComponent = () => {
 
-    const [users, setUsers] = useState<IUsers[]>([]);
+
+    const dispatch = useAppDispatch();
+    const users = useAppSelector((state) => state.userSlice.users)
 
     useEffect(() => {
 
-        loadAuthUsers().then(users =>
-        {setUsers(users)}).catch(error => {console.log(error)})
+        dispatch(userActions.loadUsers());
 
         refresh()
         .then(() =>loadAuthUsers())

@@ -1,7 +1,7 @@
 
 import {useEffect, useState} from "react";
 import {IRecipes} from "../../models/recipes/IRecipes.ts";
-import {loadAuthRecipes} from "../../services/api-login.service.ts";
+import {loadAuthRecipes} from "../../services/login-service/api-login.service.ts";
 import ShowDetailRecipeComponent from "../show-detail-recipe/ShowDetailRecipeComponent.tsx";
 
 const ShowDetailsRecipeComponents = () => {

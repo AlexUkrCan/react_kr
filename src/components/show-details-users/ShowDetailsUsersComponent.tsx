@@ -1,39 +1,37 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {IRecipes} from "../../models/recipes/IRecipes.ts";
 import ShowDetailUserComponent from "../show-detail-user/ShowDetailUserComponent.tsx";
-import {recipeService} from "../../services/recipes-from-users/api.recipes-from-users.service.tsx";
-import {IRecipesObject} from "../../models/recipes/IRecipesObject.ts";
-import {loadAuthRecipes} from "../../services/api-login.service.ts";
+import {loadAuthUsers} from "../../services/login-service/api-login.service.ts";
+import {IUsers} from "../../models/users/IUsers.ts";
 
 
 
 const ShowDetailsUsersComponent = () => {
    const{id} = useParams();
 
-   const [recipes, setRecipes] = useState<IRecipes[]>();
+   const [user, setUsers] = useState<IUsers[]>();
     useEffect(() => {
         // .then(res => res.json())
         // .then(console.log);
         // fetch('https://dummyjson.com/recipes/' + id )
         //     .then(res => res.json())
-        if(id){
-            recipeService.getRecipesOfUsers(id)
-                .then(({recipes}:IRecipesObject) =>{
-                    setRecipes(recipes);
-
-                });
-        }
-         loadAuthRecipes().then(recipes =>
-        {setRecipes(recipes)})
+        //  if(id){
+        //  recipeService.getRecipesOfUsers(id)
+        //         .then(({recipes}:IRecipesObject) =>{
+        //              setRecipes(recipes);
+        //
+        //         });
+        //  }
+         loadAuthUsers().then(user =>
+        {setUsers(user)})
 
 }, [id]);
     return (
         <div>
             {
 
-                recipes &&
-                recipes.map((recipe:IRecipes)=><ShowDetailUserComponent key={recipe.id} recipe={recipe}/>)
+                user &&
+                user.map(user=><ShowDetailUserComponent key={user.id} user={user}/>)
             }
 
         </div>
