@@ -16,7 +16,7 @@ export const routs = createBrowserRouter([
         ]},
             {path:'login/sign_in', element:<SigninLayout/>, children:[
     {path:'auth/users', element:<UsersPage/>},
-    {path:'users/:id', element:<ShowDetailsUsersPage/>},
+    {path:'auth/users/users/:id', element:<ShowDetailsUsersPage/>},
     {path:'auth/recipes', element:<RecipesPage/>},
                     {path:'auth/recipes/recipe', element:<ShowDetailsRecipePage/>},
         ]},

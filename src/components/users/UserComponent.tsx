@@ -12,7 +12,7 @@ const UserComponent:FC<UserTypeProps> = ({user}) => {
       const navigation = useNavigate();
 
       const onButtonClickNavigate = ()  =>{
-          navigation('/users/' + user.id )
+          navigation('users/' + user.id )
       }
 
     return (
