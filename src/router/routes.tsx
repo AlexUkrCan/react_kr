@@ -18,10 +18,11 @@ export const routs = createBrowserRouter([
     {path:'auth/users', element:<UsersPage/>},
     {path:'users/:id', element:<ShowDetailsUsersPage/>},
     {path:'auth/recipes', element:<RecipesPage/>},
-    {path:'recipes/recipe', element:<ShowDetailsRecipePage/>},
+                    {path:'auth/recipes/recipe', element:<ShowDetailsRecipePage/>},
+        ]},
 
 
-         ]}
+
+         ])
 
 
-])

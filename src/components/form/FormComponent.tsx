@@ -24,8 +24,9 @@ const FormComponent = () => {
         navigation('sign_in'  )
     }
 
-    const customHandler = (data:LoginData
+    const customHandler = (data:LoginData,
     ) => {
+
 
         console.log(data)
        const loginData:LoginData = {

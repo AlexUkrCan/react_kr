@@ -12,7 +12,7 @@ const RecipeComponent:FC<RecipeTypeProps> = ({item}) => {
     const navigation = useNavigate();
 
     const onButtonClickNavigateRecipe = ()  =>{
-        navigation('/recipes/recipe')
+        navigation('recipe')
     }
 
     return (

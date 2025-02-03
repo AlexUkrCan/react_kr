@@ -1,17 +1,21 @@
 
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {IRecipes} from "../../models/recipes/IRecipes.ts";
-import {loadAuthRecipes} from "../../services/login-service/api-login.service.ts";
 import ShowDetailRecipeComponent from "../show-detail-recipe/ShowDetailRecipeComponent.tsx";
+import {useAppDispatch, useAppSelector} from "../../redux/store.ts";
+import {recipeActions} from "../../redux/recipe-slice/RecipeSlice.ts";
 
 const ShowDetailsRecipeComponents = () => {
 
 
-    const [recipes, setRecipes] = useState<IRecipes[]>();
+
+    const dispatch = useAppDispatch();
+    const recipes = useAppSelector((state) => state.recipeSlice.recipes)
+
     useEffect(() => {
 
-        loadAuthRecipes().then(recipes =>
-        {setRecipes(recipes)})
+        dispatch(recipeActions.loadRecipes());
+
 
     }, []);
     return (
